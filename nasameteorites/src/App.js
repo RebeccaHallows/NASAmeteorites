@@ -7,6 +7,21 @@ const apiUrl = "https://data.nasa.gov/resource/gh4g-9sfh.json";
 function App() {
   
   const [data, setData] = useState();
+  const meteoriteImgs = [
+    {
+      id: 0,
+      url: "https://solarsystem.nasa.gov/system/resources/list_images/2240_Bennu-Survey_320.jpg",
+    },
+    {
+      id: 1,
+      url: "https://solarsystem.nasa.gov/system/resources/list_images/1031_ida_dactyl_320.jpg",
+    },
+    {
+      id: 2,
+      url: "https://solarsystem.nasa.gov/system/resources/list_images/782_PIA02487_thumb.jpg",
+    },
+  ];
+
   const testData = [
     {
       name: "Aachen",
@@ -26,16 +41,22 @@ function App() {
     },
   ];
 
-  // useEffect(()=>{
-  //   axios.get(apiUrl).then((response)=>{
-  //     console.log("calling")
-  //     setData(response.data)
+  const getRandomMeteoriteImg = () => {
+    let randomNum = Math.floor(Math.random() * meteoriteImgs.length);  
+    return meteoriteImgs[randomNum]
+    }
+  
 
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-  // } ,[])
+  useEffect(()=>{
+    axios.get(apiUrl).then((response)=>{
+      console.log("calling")
+      setData(response.data)
+
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  } ,[])
 
   if (data){
     console.log(data)
@@ -44,19 +65,33 @@ function App() {
   
   return (
     <div>
+    <body className='body'>
+    </body>
+      
     <h1 className='text-3xl'>
-      Hello World </h1>  
+      Meteorites </h1>  
       <div>
         {
-          testData.map((meteorite)=>{
+          data.map((meteorite)=>{
             return(
-              <div key={meteorite.id}>
-              {meteorite.name}
+              <div className='card' key={meteorite.id}>
+              <p>{meteorite.name}</p>
+
+                <div class='center'>
+                  <img src = {getRandomMeteoriteImg().url}/>
+                </div>
+
+                  <div className='text'>
+                    <p>Mass: {meteorite.mass}</p>
+                    <p>Date: {String(meteorite.year).slice(0,10)}</p>
+                    <p><span>Latitude: {meteorite.geolocation?.latitude}</span> <span>Longitude: {meteorite.geolocation?.longitude}</span></p>
+                  </div>
               </div>
             )
           })
         }
       </div>
+
     </div>
   );
 }

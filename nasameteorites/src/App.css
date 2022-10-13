@@ -1,0 +1,71 @@
+/* .body::before {
+    content: "";
+    background: url('/Users/rebeccahallows/NASAmeteorites/nasameteorites/src/assets/Meteor_Shower_Background_Free_Vector.jpg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    opacity: 0.2;
+    filter: grayscale(100%);
+  } */
+  .card{
+    text-align: center;
+    padding: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    border: solid black 1px;
+    width: 400px;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: whitesmoke;
+    
+
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    opacity: 1;
+    text-align: center;
+  }
+
+  .text{
+    font-size: 15px;
+    font-weight: normal;
+    opacity: 1;
+  }
+
+  .text-3xl{
+    text-align: center;
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    opacity: 1;
+}
+
+.body{
+  background-image: url('/Users/rebeccahallows/NASAmeteorites/nasameteorites/src/assets/Meteor_Shower_Background_Free_Vector.jpg');
+  position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: inline-block;
+    opacity: 0.5;
+    filter: grayscale(2%);
+    z-index: -5;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
