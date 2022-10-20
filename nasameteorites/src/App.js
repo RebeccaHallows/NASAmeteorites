@@ -86,8 +86,6 @@ function App() {
                     <p>Date: {String(meteorite.year).slice(0,10)}</p>
                     <p><span>Latitude: {meteorite.geolocation?.latitude}</span> <span>Longitude: {meteorite.geolocation?.longitude}</span></p>
                   </div>
-
-                
               </div>
             )
           })
@@ -99,4 +97,5 @@ function App() {
 }
 
 export default App;
+
 
